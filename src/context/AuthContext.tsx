@@ -46,7 +46,7 @@ function AuthProvider({ children }: AuthProviderProps) {
     if (storedToken && storedUser) {
       (async function () {
         await AuthService.getProfile().then((response) => {
-          setUser(response);
+          setUser(response.data);
         });
       })();
     }
@@ -75,8 +75,8 @@ function AuthProvider({ children }: AuthProviderProps) {
   }
 
   async function logout() {
-    await destroyCookie(undefined, "@filmesweb.token");
-    await destroyCookie(undefined, "@filmesweb.user");
+    destroyCookie(undefined, "@filmesweb.token");
+    destroyCookie(undefined, "@filmesweb.user");
 
     route.push("/login");
     setUser({} as User);

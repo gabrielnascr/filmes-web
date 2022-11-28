@@ -137,17 +137,25 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   }
 
-  const loggedUser = await AuthService.getProfile(context);
-
-  if (!loggedUser) {
+  try {
+    const { data } = await AuthService.getProfile(context);
+    
+    if (!data) {
+      return {
+        redirect: {
+          destination: "login",
+        },
+      };
+    }
+  
+    return {
+      props: data,
+    };
+  } catch (error) {
     return {
       redirect: {
-        destination: "login",
-      },
-    };
+        destination: "login"
+      }
+    }
   }
-
-  return {
-    props: loggedUser,
-  };
 }

@@ -20,9 +20,7 @@ class AuthService {
   }
 
   async getProfile(context?: any) {
-    const { data } = await getAPIClient(context).get('/auth/profile');
-
-    return data;
+    return await getAPIClient(context).get('/auth/profile');
   }
 }
 
