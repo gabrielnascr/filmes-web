@@ -1,0 +1,27 @@
+.container {
+  padding: 1rem 4rem;
+  background-color: rebeccapurple;
+  border: 0;
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+
+  transition: ease 0.5s;
+
+  &:after {
+    content: "»";
+    position: absolute;
+    opacity: 0;
+    top: 14px;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  &:hover:after {
+    opacity: 1;
+    right: 10px;
+  }
+}

@@ -1,0 +1,83 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #ededed;
+  overflow-x: hidden;
+}
+
+.content {
+  padding: 80px;
+}
+
+.username {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 42px;
+}
+
+.sectionContainer {
+  margin-top: 60px;
+
+  height: 100%;
+  background-color: white;
+
+  border-radius: 30px;
+  padding: 100px;
+  padding-bottom: 60px;
+}
+
+.sectionTitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #181818;
+  margin-bottom: 20px ;
+}
+
+.sectionCardsWrapper {
+  display: flex;
+  overflow-x: auto;
+
+  height: 260px;
+  align-items: center;
+
+  gap: 30px;
+  padding-left: 30px;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+    border: 1px solid #d5d5d5;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #eeeeee;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #b0b0b0;
+  }
+}
+
+.sectionHeaderWrapper {
+  display: flex;
+  width: 100%;
+
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.noHaveMoviesText {
+  font-family: 'Poppins', sans-serif; 
+  text-align: center;
+
+  font-size: 32px;
+}
+
+.addMovieButtonContainer {
+  display: flex;
+  justify-content: center;
+}
