@@ -20,5 +20,4 @@ yarn start
 ```
 
 ### Video de Demonstração: https://streamable.com/82s3ww
-### Link do projeto em produção: https://filmes-web.vercel.app/
 
