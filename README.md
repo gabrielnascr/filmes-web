@@ -3,12 +3,12 @@
 # Filmes
 
 ## Introdução
-Este é um projeto para testar meus conhecimentos técnicos pra vaga de Full Stack da XPerience.
+Este é um projeto para testar meus conhecimentos técnicos pra vaga de Full Stack da XPerience XR.
 
 
 ## Tecnologias utilizadas
 
-TypeScript, React, Next, Axios, Sass, Context API, Prettier, Eslint e outros.
+TypeScript, React, Next(Server Side Rendering), Axios, Sass, Context API, Prettier, Eslint e outros.
 
 ## Setup do projeto
 
