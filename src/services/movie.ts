@@ -1,4 +1,4 @@
-import { getAPIClient } from "./api";
+import { getAPIClient } from './api';
 
 class MovieService {
   async getAllMovies(ownerId: number) {
@@ -8,14 +8,14 @@ class MovieService {
   }
 
   async store(storeData: any) {
-    const { data } = await getAPIClient().post('/movie', storeData) 
+    const { data } = await getAPIClient().post('/movie', storeData);
 
     return data;
   }
 
-  async delete(movieId: number){
-    await getAPIClient().delete(`/movie/${movieId}`)
+  async delete(movieId: number) {
+    await getAPIClient().delete(`/movie/${movieId}`);
   }
 }
 
-export default new MovieService()
+export default new MovieService();

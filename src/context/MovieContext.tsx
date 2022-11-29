@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 
-import MovieService from "../services/movie";
-import { useAuth } from "./AuthContext";
+import MovieService from '../services/movie';
+import { useAuth } from './AuthContext';
 
 interface Movie {
   id: number;
@@ -46,14 +46,14 @@ export default function MovieProvider({ children }: IMovieProvider) {
     try {
       const addededMovie = await MovieService.store(data);
 
-      setMovies((currentState) => [...currentState, addededMovie]);
+      setMovies(currentState => [...currentState, addededMovie]);
 
-      toast("Movie created", {
-        type: "success",
+      toast('Movie created', {
+        type: 'success',
       });
     } catch (error) {
-      toast("Error when creating movie", {
-        type: "error",
+      toast('Error when creating movie', {
+        type: 'error',
       });
     }
   };
@@ -62,12 +62,12 @@ export default function MovieProvider({ children }: IMovieProvider) {
     try {
       await MovieService.delete(movieId);
 
-      setMovies((currentState) =>
-        currentState.filter((movie) => movie.id !== movieId)
+      setMovies(currentState =>
+        currentState.filter(movie => movie.id !== movieId),
       );
 
-      toast("Movie deleted", {
-        type: "success",
+      toast('Movie deleted', {
+        type: 'success',
       });
     } catch (error) {}
   };

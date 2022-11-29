@@ -1,14 +1,14 @@
-import Head from "next/head";
-import React from "react";
-import { useForm } from "react-hook-form";
-import Button from "../components/Button";
-import Input from "../components/Input";
-import { useAuth } from "../context/AuthContext";
+import Head from 'next/head';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import Button from '../components/Button';
+import Input from '../components/Input';
+import { useAuth } from '../context/AuthContext';
 
 import { parseCookies } from 'nookies';
 
-import styles from "../styles/pages/Login.module.scss";
-import { GetServerSidePropsContext } from "next";
+import styles from '../styles/pages/Login.module.scss';
+import { GetServerSidePropsContext } from 'next';
 
 export default function Login() {
   const { register, handleSubmit } = useForm();
@@ -53,18 +53,18 @@ export default function Login() {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { "@filmesweb.token": token } = parseCookies(context);
-  const { "@filmesweb.user": user } = parseCookies(context);
+  const { '@filmesweb.token': token } = parseCookies(context);
+  const { '@filmesweb.user': user } = parseCookies(context);
 
   if (token && user) {
     return {
       redirect: {
-        destination: '/'
-      }
-    }
+        destination: '/',
+      },
+    };
   }
 
   return {
-    props: {}
+    props: {},
   };
 }

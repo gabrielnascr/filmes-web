@@ -1,9 +1,9 @@
-import React from "react";
-import { useAuth } from "../../context/AuthContext";
-import { useModal } from "../../context/ModalContex";
-import { useMovie } from "../../context/MovieContext";
-import { useUsers } from "../../context/UsersContext";
-import Button from "../Button";
+import React from 'react';
+import { useAuth } from '../../context/AuthContext';
+import { useModal } from '../../context/ModalContex';
+import { useMovie } from '../../context/MovieContext';
+import { useUsers } from '../../context/UsersContext';
+import Button from '../Button';
 
 interface IRemoveUserModal {
   userId: number;
@@ -19,18 +19,18 @@ export default function RemoveUserModal({ userId }: IRemoveUserModal) {
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <div>
         <div>
           <h1
             style={{
-              fontFamily: "Poppins",
+              fontFamily: 'Poppins',
               fontWeight: 500,
-              textAlign: "center",
+              textAlign: 'center',
             }}
           >
             Delete a user
@@ -38,9 +38,9 @@ export default function RemoveUserModal({ userId }: IRemoveUserModal) {
 
           <p
             style={{
-              fontFamily: "Poppins",
+              fontFamily: 'Poppins',
               fontWeight: 500,
-              textAlign: "center",
+              textAlign: 'center',
               fontSize: 18,
             }}
           >
@@ -50,14 +50,14 @@ export default function RemoveUserModal({ userId }: IRemoveUserModal) {
         <div
           style={{
             width: 500,
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
             marginTop: 30,
           }}
         >
           <Button
-            style={{ backgroundColor: "#ce3226" }}
+            style={{ backgroundColor: '#ce3226' }}
             onClick={() => {
               handleCloseModal();
             }}
@@ -65,11 +65,11 @@ export default function RemoveUserModal({ userId }: IRemoveUserModal) {
             Cancel
           </Button>
           <Button
-            style={{ backgroundColor: "#2e8b57" }}
+            style={{ backgroundColor: '#2e8b57' }}
             type="submit"
             onClick={async () => {
               if (isLoggedProfile) {
-                logout()
+                logout();
               }
 
               removeUser(userId);

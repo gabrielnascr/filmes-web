@@ -1,11 +1,11 @@
-import React from "react";
-import styles from "../styles/components/UserCard.module.scss";
+import React from 'react';
+import styles from '../styles/components/UserCard.module.scss';
 
-import { format } from "date-fns";
-import { useModal } from "../context/ModalContex";
-import RemoveUserModal from "./Modal/RemoveUserModal";
-import { AiFillDelete } from "react-icons/ai";
-import { useAuth } from "../context/AuthContext";
+import { format } from 'date-fns';
+import { useModal } from '../context/ModalContex';
+import RemoveUserModal from './Modal/RemoveUserModal';
+import { AiFillDelete } from 'react-icons/ai';
+import { useAuth } from '../context/AuthContext';
 
 interface IUserCard {
   id: number;
@@ -28,7 +28,7 @@ export default function UserCard({
 
   return (
     <div className={styles.userCardContainer}>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div>
           <p className={styles.userNameText}>{name}</p>
           <span className={styles.emailText}>{email}</span>
@@ -47,19 +47,19 @@ export default function UserCard({
 
       <div
         style={{
-          display: "flex",
-          justifyContent: "space-between",
-          flexDirection: "column",
+          display: 'flex',
+          justifyContent: 'space-between',
+          flexDirection: 'column',
         }}
       >
         {createdAt && (
           <p className={styles.createdAtText}>
-            Created date: {format(new Date(createdAt), "dd/MM/yyyy")}
+            Created date: {format(new Date(createdAt), 'dd/MM/yyyy')}
           </p>
         )}
         {lastLoginDate && (
           <p className={styles.lastLoginText}>
-            Last login: {format(new Date(lastLoginDate), "dd/MM/yyyy")} -
+            Last login: {format(new Date(lastLoginDate), 'dd/MM/yyyy')} -
           </p>
         )}
       </div>

@@ -1,4 +1,4 @@
-import { getAPIClient } from "./api";
+import { getAPIClient } from './api';
 
 interface IGetAllUsersResponse {
   id: number;
@@ -16,14 +16,14 @@ class UserService {
   }
 
   async store(storeData: any) {
-    const { data } = await getAPIClient().post('/admin', storeData) 
+    const { data } = await getAPIClient().post('/admin', storeData);
 
     return data;
   }
 
-  async delete(userId: number){
-    await getAPIClient().delete(`/admin/${userId}`)
+  async delete(userId: number) {
+    await getAPIClient().delete(`/admin/${userId}`);
   }
 }
 
-export default new UserService()
+export default new UserService();

@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import styles from "../styles/components/MovieCard.module.scss";
-import Button from "./Button";
+import styles from '../styles/components/MovieCard.module.scss';
+import Button from './Button';
 
-import { AiFillDelete } from "react-icons/ai";
-import { useModal } from "../context/ModalContex";
-import RemoveMovieModal from "./Modal/RemoveMovieModal";
+import { AiFillDelete } from 'react-icons/ai';
+import { useModal } from '../context/ModalContex';
+import RemoveMovieModal from './Modal/RemoveMovieModal';
 
 interface IMovieCard {
   id: number;

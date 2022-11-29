@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { parseCookies, setCookie, destroyCookie } from "nookies";
-import { toast } from "react-toastify";
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import { toast } from 'react-toastify';
 
-import AuthService from "../services/auth";
-import { useRouter } from "next/router";
+import AuthService from '../services/auth';
+import { useRouter } from 'next/router';
 
 type AuthProviderProps = {
   children: React.ReactNode;
@@ -19,7 +19,6 @@ interface SignInRequestProps {
   email: string;
   password: string;
 }
-
 
 interface AuthContextType {
   user: User;
@@ -40,12 +39,12 @@ function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     setIsLoading(true);
 
-    const { "@filmesweb.token": storedToken } = parseCookies();
-    const { "@filmesweb.user": storedUser } = parseCookies();
+    const { '@filmesweb.token': storedToken } = parseCookies();
+    const { '@filmesweb.user': storedUser } = parseCookies();
 
     if (storedToken && storedUser) {
       (async function () {
-        await AuthService.getProfile().then((response) => {
+        await AuthService.getProfile().then(response => {
           setUser(response.data);
         });
       })();
@@ -58,27 +57,27 @@ function AuthProvider({ children }: AuthProviderProps) {
     await AuthService.authenticate(data)
       .then(({ loggedUser, token }) => {
         setUser(loggedUser);
-        setCookie(undefined, "@filmesweb.token", token, {
+        setCookie(undefined, '@filmesweb.token', token, {
           maxAge: 60 * 60 * 24,
         });
-        setCookie(undefined, "@filmesweb.user", JSON.stringify(loggedUser), {
+        setCookie(undefined, '@filmesweb.user', JSON.stringify(loggedUser), {
           maxAge: 60 * 60 * 24,
         });
 
-        toast("Você foi autenticado com sucesso", { type: "success" });
+        toast('Você foi autenticado com sucesso', { type: 'success' });
 
-        route.push("/");
+        route.push('/');
       })
       .catch(() => {
-        toast("Credenciais inválidas", { type: "error" });
+        toast('Credenciais inválidas', { type: 'error' });
       });
   }
 
   async function logout() {
-    destroyCookie(undefined, "@filmesweb.token");
-    destroyCookie(undefined, "@filmesweb.user");
+    destroyCookie(undefined, '@filmesweb.token');
+    destroyCookie(undefined, '@filmesweb.user');
 
-    route.push("/login");
+    route.push('/login');
     setUser({} as User);
   }
 
@@ -97,7 +96,7 @@ const useAuth = () => {
   const context = useContext(AuthContext);
 
   if (!context) {
-    throw new Error("");
+    throw new Error('');
   }
 
   return context;

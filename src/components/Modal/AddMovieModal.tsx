@@ -1,11 +1,11 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
-import Button from "../Button";
-import Input from "../Input";
+import Button from '../Button';
+import Input from '../Input';
 
-import { useModal } from "../../context/ModalContex";
-import { useMovie } from "../../context/MovieContext";
+import { useModal } from '../../context/ModalContex';
+import { useMovie } from '../../context/MovieContext';
 
 export default function AddMovieModal() {
   const { register, handleSubmit } = useForm();
@@ -21,30 +21,30 @@ export default function AddMovieModal() {
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <div>
         <div>
           <h1
             style={{
-              fontFamily: "Poppins",
+              fontFamily: 'Poppins',
               fontWeight: 500,
-              textAlign: "center",
+              textAlign: 'center',
             }}
           >
-            Add a movie{" "}
+            Add a movie{' '}
           </h1>
         </div>
         <form>
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
+              display: 'flex',
+              flexDirection: 'column',
               gap: 15,
-              justifyContent: "center",
+              justifyContent: 'center',
             }}
           >
             <Input
@@ -78,14 +78,14 @@ export default function AddMovieModal() {
         <div
           style={{
             width: 500,
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
             marginTop: 30,
           }}
         >
           <Button
-            style={{ backgroundColor: "#ce3226" }}
+            style={{ backgroundColor: '#ce3226' }}
             onClick={() => {
               handleCloseModal();
             }}
@@ -93,7 +93,7 @@ export default function AddMovieModal() {
             Cancel
           </Button>
           <Button
-            style={{ backgroundColor: "#2e8b57" }}
+            style={{ backgroundColor: '#2e8b57' }}
             type="submit"
             onClick={handleSubmit(onSubmit)}
           >

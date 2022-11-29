@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useState } from "react";
-import { toast } from "react-toastify";
+import React, { createContext, useContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
-import UserService from "../services/user";
+import UserService from '../services/user';
 
 interface User {
   id: number;
@@ -39,10 +39,10 @@ function UsersProvider({ children }: IUsersProvider) {
     try {
       const createdUser = await UserService.store(data);
 
-      setUsers((currentState) => [...currentState, createdUser]);
+      setUsers(currentState => [...currentState, createdUser]);
 
-      toast("User created", {
-        type: "success",
+      toast('User created', {
+        type: 'success',
       });
     } catch (error) {}
   };
@@ -51,12 +51,10 @@ function UsersProvider({ children }: IUsersProvider) {
     try {
       await UserService.delete(userId);
 
-      setUsers((currentState) =>
-        currentState.filter((user) => user.id !== userId)
-      );
+      setUsers(currentState => currentState.filter(user => user.id !== userId));
 
-      toast("User deleted", {
-        type: "success",
+      toast('User deleted', {
+        type: 'success',
       });
     } catch (error) {}
   };
@@ -68,7 +66,7 @@ function UsersProvider({ children }: IUsersProvider) {
   );
 }
 
-const useUsers = () => {  
+const useUsers = () => {
   return useContext(UsersContext);
 };
 

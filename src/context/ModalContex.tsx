@@ -1,5 +1,4 @@
-import React, { createContext, useContext } from "react";
-import { useState } from "react";
+import React, { createContext, useContext, useState } from 'react';
 
 interface IHandleOpenModal {
   container: JSX.Element;

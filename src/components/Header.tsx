@@ -1,9 +1,9 @@
-import React from "react";
-import styles from "../styles/components/Header.module.scss";
+import React from 'react';
+import styles from '../styles/components/Header.module.scss';
 
-import { MdOutlineLogout } from "react-icons/md";
-import { useRouter } from "next/router";
-import { useAuth } from "../context/AuthContext";
+import { MdOutlineLogout } from 'react-icons/md';
+import { useRouter } from 'next/router';
+import { useAuth } from '../context/AuthContext';
 
 interface HeaderProps {
   userName: string;
@@ -16,7 +16,7 @@ export default function Header({ userName }: HeaderProps) {
 
   const handleLogout = async () => {
     await logout();
-    route.push("login");
+    route.push('login');
   };
 
   return (

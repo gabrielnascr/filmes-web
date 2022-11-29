@@ -1,25 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-typos */
-import Head from "next/head";
-import { useEffect, useState } from "react";
-import styles from "../styles/pages/Home.module.scss";
+import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import styles from '../styles/pages/Home.module.scss';
 
-import Header from "../components/Header";
-import AddMovieModal from "../components/Modal/AddMovieModal";
-import { MovieCard } from "../components/MovieCard";
-import UserCard from "../components/UserCard";
+import Header from '../components/Header';
+import AddMovieModal from '../components/Modal/AddMovieModal';
+import { MovieCard } from '../components/MovieCard';
+import UserCard from '../components/UserCard';
 
-import { parseCookies } from "nookies";
+import { parseCookies } from 'nookies';
 
-import { GetServerSidePropsContext } from "next";
-import Button from "../components/Button";
+import { GetServerSidePropsContext } from 'next';
+import Button from '../components/Button';
 
-import AuthService from "../services/auth";
-import { useModal } from "../context/ModalContex";
-import { useMovie } from "../context/MovieContext";
-import { useAuth } from "../context/AuthContext";
-import AddUserModal from "../components/Modal/AddUserModal";
-import { useUsers } from "../context/UsersContext";
+import AuthService from '../services/auth';
+import { useModal } from '../context/ModalContex';
+import { useMovie } from '../context/MovieContext';
+import { useAuth } from '../context/AuthContext';
+import AddUserModal from '../components/Modal/AddUserModal';
+import { useUsers } from '../context/UsersContext';
 
 interface IMovie {
   id: number;
@@ -60,7 +60,7 @@ export default function Home(loggedUser: User) {
         <Header userName={loggedUser.name} />
         <section className={styles.sectionContainer}>
           <p className={styles.sectionTitle}>
-            {movies.length > 0 && "Your movies: "}
+            {movies.length > 0 && 'Your movies: '}
           </p>
           {movies.length == 0 ? (
             <p className={styles.noHaveMoviesText}>
@@ -68,7 +68,7 @@ export default function Home(loggedUser: User) {
             </p>
           ) : (
             <div className={styles.sectionCardsWrapper}>
-              {movies.map((movie) => (
+              {movies.map(movie => (
                 <MovieCard
                   key={movie.id}
                   id={movie.id}
@@ -85,7 +85,7 @@ export default function Home(loggedUser: User) {
                   container: <AddMovieModal />,
                 });
               }}
-              style={{ backgroundColor: "#2e8b57", marginTop: 60 }}
+              style={{ backgroundColor: '#2e8b57', marginTop: 60 }}
             >
               Add movie
             </Button>
@@ -96,7 +96,7 @@ export default function Home(loggedUser: User) {
           <div className={styles.sectionCardsWrapper}>
             {users
               ?.sort((_, user) => user.id - loggedUser.id)
-              ?.map((user) => (
+              ?.map(user => (
                 <UserCard
                   key={user.id}
                   id={user.id}
@@ -114,7 +114,7 @@ export default function Home(loggedUser: User) {
                   container: <AddUserModal />,
                 });
               }}
-              style={{ backgroundColor: "#2e8b57", marginTop: 60 }}
+              style={{ backgroundColor: '#2e8b57', marginTop: 60 }}
             >
               Add user
             </Button>
@@ -126,36 +126,36 @@ export default function Home(loggedUser: User) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { "@filmesweb.token": token } = parseCookies(context);
-  const { "@filmesweb.user": user } = parseCookies(context);
+  const { '@filmesweb.token': token } = parseCookies(context);
+  const { '@filmesweb.user': user } = parseCookies(context);
 
   if (!token || !user) {
     return {
       redirect: {
-        destination: "login",
+        destination: 'login',
       },
     };
   }
 
   try {
     const { data } = await AuthService.getProfile(context);
-    
+
     if (!data) {
       return {
         redirect: {
-          destination: "login",
+          destination: 'login',
         },
       };
     }
-  
+
     return {
       props: data,
     };
   } catch (error) {
     return {
       redirect: {
-        destination: "login"
-      }
-    }
+        destination: 'login',
+      },
+    };
   }
 }

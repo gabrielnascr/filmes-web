@@ -1,4 +1,4 @@
-import { getAPIClient } from "./api";
+import { getAPIClient } from './api';
 
 interface IAuthenticateDTO {
   email: string;
@@ -15,7 +15,10 @@ class AuthService {
     email,
     password,
   }: IAuthenticateDTO): Promise<IAuthenticateResponse> {
-    const { data } = await getAPIClient().post('/auth/login', { email, password });
+    const { data } = await getAPIClient().post('/auth/login', {
+      email,
+      password,
+    });
     return data;
   }
 
